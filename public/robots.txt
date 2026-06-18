@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://appshots.appstate.xyz/sitemap.xml
+Sitemap: https://sushil787.github.io/sitemap.xml

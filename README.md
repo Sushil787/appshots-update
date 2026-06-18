@@ -2,7 +2,7 @@
 
 A free, open-source tool to create stunning, high-converting screenshots for the Apple App Store and Google Play Store in minutes. Design professional app previews with an intuitive drag-and-drop editor.
 
-🔗 **Live Demo:** [appshots.appstate.xyz](https://appshots.appstate.xyz/)
+🔗 **Live Demo:** [sushil787.github.io](https://sushil787.github.io/)
 
 ![App Store Screenshot Generator](public/demo-image.png)
 
@@ -105,8 +105,8 @@ A free, open-source tool to create stunning, high-converting screenshots for the
 
 ```bash
 # Clone the repository
-git clone https://github.com/Sushil787/appshots-update.git
-cd appshots-update
+git clone https://github.com/Sushil787/sushil787.github.io.git
+cd sushil787.github.io
 
 # Install dependencies
 bun install
@@ -217,7 +217,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 
-- Create an [issue](https://github.com/Sushil787/appshots-update/issues) for bug reports or feature requests
+- Create an [issue](https://github.com/Sushil787/sushil787.github.io/issues) for bug reports or feature requests
 - Star ⭐ this repo if you find it useful!
 
 ---

@@ -2,8 +2,8 @@
 
 > ScreenShotEditor is a free, open-source web tool for creating professional, high-converting screenshots for the Apple App Store and Google Play Store. It provides a full-featured drag-and-drop editor with multi-device layouts, cross-screen compositions, rich text highlights, overlays, shapes, and batch export.
 
-Website: https://appshots.appstate.xyz
-GitHub: https://github.com/Sushil787/appshots-update
+Website: https://sushil787.github.io
+GitHub: https://github.com/Sushil787/sushil787.github.io
 License: MIT
 
 ## What ScreenShotEditor Does
@@ -147,8 +147,8 @@ ScreenShotEditor is entirely client-side. There are no backend APIs. Data flows:
 Prerequisites: Bun (recommended) or Node.js 18+
 
 ```
-git clone https://github.com/Sushil787/appshots-update.git
-cd appshots-update
+git clone https://github.com/Sushil787/sushil787.github.io.git
+cd sushil787.github.io
 bun install
 bun run dev
 ```

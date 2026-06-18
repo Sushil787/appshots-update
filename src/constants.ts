@@ -5,7 +5,7 @@ import type {
   ShapeType,
 } from "./types";
 
-export const GITHUB_REPO_URL = "https://github.com/Sushil787/appshots-update";
+export const GITHUB_REPO_URL = "https://github.com/Sushil787/sushil787.github.io";
 
 export const devices: DeviceSpec[] = [
   {
