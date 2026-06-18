@@ -2,6 +2,8 @@
 
 A free, open-source tool to create stunning, high-converting screenshots for the Apple App Store and Google Play Store in minutes. Design professional app previews with an intuitive drag-and-drop editor.
 
+> **Credit:** This project is built on top of the original [oyeolamilekan/appshots](https://github.com/oyeolamilekan/appshots) — full credit to the original author. This repository extends it with shapes, light/dark theme, additional features, SEO, and other improvements.
+
 🔗 **Live Demo:** [sushil787.github.io](https://sushil787.github.io/)
 
 ![App Store Screenshot Generator](public/demo-image.png)
@@ -210,6 +212,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
+- **[oyeolamilekan/appshots](https://github.com/oyeolamilekan/appshots)** — the original project this is built on. Huge thanks to the original author.
 - [TanStack](https://tanstack.com/) for the amazing router and devtools
 - [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
 - [Lucide](https://lucide.dev/) for beautiful icons

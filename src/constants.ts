@@ -7,6 +7,10 @@ import type {
 
 export const GITHUB_REPO_URL = "https://github.com/Sushil787/sushil787.github.io";
 
+/** Original project this app is built on top of — credit the source. */
+export const ORIGINAL_REPO_URL = "https://github.com/oyeolamilekan/appshots";
+export const ORIGINAL_REPO_LABEL = "oyeolamilekan/appshots";
+
 export const devices: DeviceSpec[] = [
   {
     id: "iphone-15-pro-max",

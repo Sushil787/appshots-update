@@ -5,6 +5,7 @@
  */
 
 import { Plus } from "lucide-react";
+import { ORIGINAL_REPO_URL, ORIGINAL_REPO_LABEL } from "../../constants";
 
 interface ToolbarProps {
   /** Callback to add a new screenshot */
@@ -36,6 +37,16 @@ export const Toolbar = ({ onAddScreenshot, screenshotCount }: ToolbarProps) => (
         Add Screenshot
       </button>
     </div>
+    <a
+      href={ORIGINAL_REPO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-xs text-neutral-500 dark:text-gray-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+      title="This project builds on the original open-source repo"
+    >
+      Based on{" "}
+      <span className="underline underline-offset-2">{ORIGINAL_REPO_LABEL}</span>
+    </a>
     <div className="flex-1" />
     <span className="text-xs text-neutral-500 dark:text-gray-400">
       {screenshotCount} screenshot{screenshotCount !== 1 ? "s" : ""}
