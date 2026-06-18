@@ -105,8 +105,8 @@ A free, open-source tool to create stunning, high-converting screenshots for the
 
 ```bash
 # Clone the repository
-git clone https://github.com/oyeolamilekan/appshots.git
-cd app-screenshot-generator
+git clone https://github.com/Sushil787/appshots-update.git
+cd appshots-update
 
 # Install dependencies
 bun install
@@ -217,7 +217,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 
-- Create an [issue](https://github.com/oyeolamilekan/appshots/issues) for bug reports or feature requests
+- Create an [issue](https://github.com/Sushil787/appshots-update/issues) for bug reports or feature requests
 - Star ⭐ this repo if you find it useful!
 
 ---
