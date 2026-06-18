@@ -58,6 +58,10 @@ export interface OverlayImageItemProps {
   index: number;
   totalCount: number;
   isSelected: boolean;
+  /** True when the image is the top-most "front" image (nothing further forward) */
+  disableForward: boolean;
+  /** True when the image is the bottom-most "behind" image (nothing further back) */
+  disableBackward: boolean;
   onSelect: () => void;
   onRemove: () => void;
   onMoveForward: () => void;

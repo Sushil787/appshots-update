@@ -46,7 +46,7 @@ export const OverlayImageProperties = ({
     />
 
     <div>
-      <label className="block text-xs text-neutral-500 dark:text-gray-400 mb-1">Layer Position</label>
+      <label className="block text-xs font-medium text-neutral-600 dark:text-gray-300 mb-1">Layer Position</label>
       <div className="flex gap-1">
         <button
           onClick={() => onLayerChange("behind")}

@@ -1020,24 +1020,46 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
     updateActiveScreenshot({ overlayImages: updatedImages });
   };
 
-  // Reorder an overlay image relative to its visible peers. Like shapes, images
-  // render in two groups (behind vs. in front of the device), so we swap with
-  // the nearest neighbor in the same layer rather than the raw array neighbor.
+  // Reorder an overlay image through one continuous stacking order that crosses
+  // the device, mirroring shapes. Images render in two groups (behind vs. in
+  // front of the device); we treat [behind..., front...] as the full
+  // bottom-to-top order so the arrows can move an image past the device even
+  // when the far side is empty.
   const reorderImageWithinLayer = (imageId: string, direction: 1 | -1) => {
-    const images = [...activeScreenshot.overlayImages];
-    const index = images.findIndex((img) => img.id === imageId);
-    if (index === -1) return;
+    const all = activeScreenshot.overlayImages;
     const isBehind = (img: ImageOverlay) => img.layer === "behind";
-    let target = -1;
-    for (let i = index + direction; i >= 0 && i < images.length; i += direction) {
-      if (isBehind(images[i]) === isBehind(images[index])) {
-        target = i;
-        break;
-      }
+    const behind = all.filter(isBehind);
+    const front = all.filter((img) => !isBehind(img));
+    const ordered = [...behind, ...front];
+    const boundary = behind.length;
+
+    const pos = ordered.findIndex((img) => img.id === imageId);
+    if (pos === -1) return;
+
+    const movingBehind = pos < boundary;
+
+    const crossesForward =
+      direction === 1 && movingBehind && pos === boundary - 1;
+    const crossesBackward =
+      direction === -1 && !movingBehind && pos === boundary;
+
+    if (crossesForward || crossesBackward) {
+      const nextLayer: ImageOverlay["layer"] = movingBehind
+        ? "front"
+        : "behind";
+      const flipped = ordered.map((img) =>
+        img.id === imageId ? { ...img, layer: nextLayer } : img,
+      );
+      const reBehind = flipped.filter(isBehind);
+      const reFront = flipped.filter((img) => !isBehind(img));
+      updateActiveScreenshot({ overlayImages: [...reBehind, ...reFront] });
+      return;
     }
-    if (target === -1) return;
-    [images[index], images[target]] = [images[target], images[index]];
-    updateActiveScreenshot({ overlayImages: images });
+
+    const next = pos + direction;
+    if (next < 0 || next >= ordered.length) return; // already at the extreme
+    [ordered[pos], ordered[next]] = [ordered[next], ordered[pos]];
+    updateActiveScreenshot({ overlayImages: ordered });
   };
 
   const bringImageForward = (imageId: string) =>
@@ -1192,30 +1214,41 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
     const behind = all.filter(isBehind);
     const front = all.filter((shape) => !isBehind(shape));
     const ordered = [...behind, ...front];
+    // The device sits at this fixed boundary between the two groups. It is part
+    // of the stacking order even when one side currently holds no shapes.
+    const boundary = behind.length;
 
     const pos = ordered.findIndex((shape) => shape.id === shapeId);
     if (pos === -1) return;
-    const next = pos + direction;
-    if (next < 0 || next >= ordered.length) return; // already at the extreme
 
-    const moving = ordered[pos];
-    const neighbor = ordered[next];
+    const movingBehind = pos < boundary;
 
-    if (isBehind(moving) === isBehind(neighbor)) {
-      // Same side of the device: swap their stacking positions.
-      [ordered[pos], ordered[next]] = [ordered[next], ordered[pos]];
-      updateActiveScreenshot({ shapes: ordered });
+    // Crossing the device: the top-most "behind" shape moves in front of the
+    // device, and the bottom-most "front" shape moves behind it — regardless of
+    // whether the other side currently holds any shapes. This is what lets a
+    // lone shape move past the device without first parking another element on
+    // the far side.
+    const crossesForward =
+      direction === 1 && movingBehind && pos === boundary - 1;
+    const crossesBackward =
+      direction === -1 && !movingBehind && pos === boundary;
+
+    if (crossesForward || crossesBackward) {
+      const nextLayer: Shape["layer"] = movingBehind ? "front" : "behind";
+      const flipped = ordered.map((shape) =>
+        shape.id === shapeId ? { ...shape, layer: nextLayer } : shape,
+      );
+      const reBehind = flipped.filter(isBehind);
+      const reFront = flipped.filter((shape) => !isBehind(shape));
+      updateActiveScreenshot({ shapes: [...reBehind, ...reFront] });
       return;
     }
 
-    // Crossing the device boundary: flip which side this shape sits on.
-    ordered[pos] = {
-      ...moving,
-      layer: isBehind(moving) ? "front" : "behind",
-    };
-    const reBehind = ordered.filter(isBehind);
-    const reFront = ordered.filter((shape) => !isBehind(shape));
-    updateActiveScreenshot({ shapes: [...reBehind, ...reFront] });
+    const next = pos + direction;
+    if (next < 0 || next >= ordered.length) return; // already at the extreme
+    // Same side of the device: swap their stacking positions.
+    [ordered[pos], ordered[next]] = [ordered[next], ordered[pos]];
+    updateActiveScreenshot({ shapes: ordered });
   };
 
   const bringShapeForward = (shapeId: string) => reorderShape(shapeId, 1);

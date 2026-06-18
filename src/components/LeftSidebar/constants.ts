@@ -19,24 +19,27 @@ export const STYLES = {
   content: "flex-1 overflow-y-auto p-4 space-y-4",
 
   /** Section container */
-  section: "rounded-lg bg-neutral-100 dark:bg-[#1e1e1e] p-3",
+  section:
+    "rounded-xl border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-[#1e1e1e] p-3.5",
 
   /** Section title */
   sectionTitle:
-    "text-xs font-medium text-neutral-700 dark:text-gray-300 uppercase tracking-wider mb-3",
+    "text-[11px] font-semibold text-neutral-700 dark:text-gray-200 uppercase tracking-wider mb-3",
 
   /** Button list container */
-  buttonList: "space-y-2",
+  buttonList: "space-y-1.5",
 
   /** Selection button base */
-  selectionButton: "w-full rounded-md px-3 py-2 text-left text-sm transition-colors",
+  selectionButton:
+    "w-full rounded-lg px-3 py-2 text-left text-sm font-medium transition-colors",
 
   /** Selection button active state */
-  selectionButtonActive: "bg-blue-600 text-white dark:bg-white dark:text-black",
+  selectionButtonActive:
+    "bg-brand-500 text-white shadow-sm dark:bg-brand-500 dark:text-white",
 
   /** Selection button inactive state */
   selectionButtonInactive:
-    "bg-neutral-200 text-neutral-700 hover:bg-neutral-300 dark:bg-[#2a2a2a] dark:text-gray-300 dark:hover:bg-[#333]",
+    "bg-white text-neutral-700 border border-black/5 hover:bg-neutral-100 dark:bg-[#2a2a2a] dark:text-gray-300 dark:border-transparent dark:hover:bg-[#333]",
 
   /** Color picker container */
   colorPicker: "flex flex-wrap gap-2",
@@ -45,12 +48,13 @@ export const STYLES = {
   colorButton: "w-7 h-7 rounded-full border-2 transition-all",
 
   /** Color button active state */
-  colorButtonActive: "border-blue-500 dark:border-white scale-110",
+  colorButtonActive:
+    "border-brand-500 dark:border-brand-400 scale-110 ring-2 ring-brand-500/20 dark:ring-brand-400/20",
 
   /** Color button inactive state */
-  colorButtonInactive: "border-transparent",
+  colorButtonInactive: "border-black/10 dark:border-white/15",
 
   /** Primary action button */
   primaryButton:
-    "w-full mt-3 bg-blue-600 hover:bg-blue-700 text-white dark:bg-white dark:hover:bg-neutral-200 dark:text-black font-medium py-2.5 rounded-lg transition-colors",
+    "w-full mt-3 bg-brand-500 hover:bg-brand-600 text-white dark:bg-brand-500 dark:hover:bg-brand-600 dark:text-white font-semibold py-2.5 rounded-lg shadow-sm transition-colors",
 } as const;

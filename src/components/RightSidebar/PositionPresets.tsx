@@ -211,18 +211,18 @@ export const PositionPresets = ({
                   onClick={() => handlePresetClick(preset)}
                   className={`flex flex-col items-center gap-1.5 p-2 rounded-lg transition-all ${
                     isActive
-                      ? "bg-blue-100 ring-2 ring-blue-500 dark:bg-blue-600/20"
-                      : "bg-neutral-100 hover:bg-neutral-200 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+                      ? "bg-brand-50 ring-1 ring-brand-500 dark:bg-brand-500/15 dark:ring-brand-400"
+                      : "bg-white border border-black/5 hover:bg-neutral-100 dark:bg-zinc-800 dark:border-transparent dark:hover:bg-zinc-700"
                   }`}
                 >
                   <div
-                    className={`${isActive ? "text-blue-600 dark:text-blue-400" : "text-neutral-500 dark:text-zinc-500"}`}
+                    className={`${isActive ? "text-brand-600 dark:text-brand-300" : "text-neutral-500 dark:text-zinc-500"}`}
                   >
                     {preset.icon}
                   </div>
                   <span
                     className={`text-[10px] leading-tight text-center ${
-                      isActive ? "text-blue-600 dark:text-blue-400" : "text-neutral-500 dark:text-zinc-400"
+                      isActive ? "text-brand-600 dark:text-brand-300" : "text-neutral-500 dark:text-zinc-400"
                     }`}
                   >
                     {preset.label}

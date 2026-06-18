@@ -31,7 +31,7 @@ export const Toolbar = ({ onAddScreenshot, screenshotCount }: ToolbarProps) => (
     <div className="flex items-center gap-2">
       <button
         onClick={onAddScreenshot}
-        className="flex items-center gap-1.5 bg-neutral-900 dark:bg-white hover:bg-neutral-800 dark:hover:bg-neutral-200 text-white dark:text-black text-sm font-medium px-3 py-1.5 rounded-md transition-colors"
+        className="flex items-center gap-1.5 bg-brand-500 hover:bg-brand-600 dark:bg-brand-500 dark:hover:bg-brand-600 text-white text-sm font-semibold px-3.5 py-2 rounded-lg shadow-sm transition-colors"
       >
         <Plus className="w-4 h-4" />
         Add Screenshot
@@ -47,6 +47,9 @@ export const Toolbar = ({ onAddScreenshot, screenshotCount }: ToolbarProps) => (
       Based on{" "}
       <span className="underline underline-offset-2">{ORIGINAL_REPO_LABEL}</span>
     </a>
+    <span className="text-xs text-neutral-400 dark:text-gray-500">
+      · extended with added features
+    </span>
     <div className="flex-1" />
     <span className="text-xs text-neutral-500 dark:text-gray-400">
       {screenshotCount} screenshot{screenshotCount !== 1 ? "s" : ""}

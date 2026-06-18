@@ -26,7 +26,7 @@ export const STYLES = {
 
   /** Input field base */
   input:
-    "w-full bg-neutral-100 dark:bg-[#2a2a2a] text-neutral-900 dark:text-white pl-10 pr-4 py-3 rounded-lg border border-black/10 dark:border-white/10 focus:border-blue-500 dark:focus:border-white focus:ring-1 focus:ring-blue-500 dark:focus:ring-white outline-none transition-all placeholder:text-neutral-400 dark:placeholder:text-gray-500",
+    "w-full bg-neutral-100 dark:bg-[#2a2a2a] text-neutral-900 dark:text-white pl-10 pr-4 py-3 rounded-lg border border-black/10 dark:border-white/10 focus:border-brand-500 dark:focus:border-brand-400 focus:ring-1 focus:ring-brand-500 dark:focus:ring-brand-400 outline-none transition-all placeholder:text-neutral-400 dark:placeholder:text-gray-500",
 
   /** Icon button */
   iconButton:

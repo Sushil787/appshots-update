@@ -38,9 +38,9 @@ interface FontCardProps {
 export const FontCard = ({ font, isSelected, onSelect }: FontCardProps) => (
   <button
     onClick={onSelect}
-    className={`group flex flex-col p-4 rounded-lg border text-left transition-all hover:border-blue-400 dark:hover:border-white/40 hover:bg-neutral-100 dark:hover:bg-[#2a2a2a] ${
+    className={`group flex flex-col p-4 rounded-lg border text-left transition-all hover:border-brand-400 dark:hover:border-brand-400/60 hover:bg-neutral-100 dark:hover:bg-[#2a2a2a] ${
       isSelected
-        ? "border-blue-500 dark:border-white bg-blue-50 dark:bg-[#2a2a2a] ring-1 ring-blue-500 dark:ring-white"
+        ? "border-brand-500 dark:border-brand-400 bg-brand-50 dark:bg-brand-500/15 ring-1 ring-brand-500 dark:ring-brand-400"
         : "border-black/10 dark:border-white/10 bg-white dark:bg-[#141414]"
     }`}
   >

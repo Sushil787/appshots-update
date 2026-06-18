@@ -3,6 +3,24 @@
 /* Class-based dark mode: `.dark` on <html> toggles the dark variant. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/**
+ * Brand palette — a soft, desaturated "gray-blue" built on the Material blue
+ * family. Calmer than pure blue-600 so large filled surfaces (primary buttons,
+ * active states) stay easy on the eyes while still reading as blue.
+ */
+@theme {
+  --color-brand-50: #eff4fa;
+  --color-brand-100: #dce8f4;
+  --color-brand-200: #bed3e9;
+  --color-brand-300: #95b5d7;
+  --color-brand-400: #6890c1;
+  --color-brand-500: #4a72a8;
+  --color-brand-600: #3f6196;
+  --color-brand-700: #365079;
+  --color-brand-800: #314463;
+  --color-brand-900: #2c3a52;
+}
+
 body {
   @apply m-0 bg-neutral-100 text-neutral-900 dark:bg-[#0a0a0a] dark:text-white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

@@ -20,6 +20,8 @@ export const OverlayImageItem = ({
   index,
   totalCount,
   isSelected,
+  disableForward,
+  disableBackward,
   onSelect,
   onRemove,
   onMoveForward,
@@ -48,7 +50,7 @@ export const OverlayImageItem = ({
           e.stopPropagation();
           onMoveBackward();
         }}
-        disabled={index === 0}
+        disabled={disableBackward}
         className={STYLES.iconButton}
         title="Send backward"
       >
@@ -59,7 +61,7 @@ export const OverlayImageItem = ({
           e.stopPropagation();
           onMoveForward();
         }}
-        disabled={index === totalCount - 1}
+        disabled={disableForward}
         className={STYLES.iconButton}
         title="Bring forward"
       >

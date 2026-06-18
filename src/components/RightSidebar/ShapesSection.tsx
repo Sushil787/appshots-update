@@ -96,6 +96,13 @@ export const ShapesSection = ({
   const svgInputRef = useRef<HTMLInputElement>(null);
   const shapes = screenshot.shapes ?? [];
 
+  // A shape can always move unless it sits at a true global extreme: the
+  // bottom-most "behind" shape (nothing further back) or the top-most "front"
+  // shape (nothing further forward). Anything in between — including a lone
+  // shape that needs to cross the device — can still move.
+  const behindShapes = shapes.filter((shape) => shape.layer === "behind");
+  const frontShapes = shapes.filter((shape) => shape.layer !== "behind");
+
   const handleSvgChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) onAddSvg(file);
@@ -151,6 +158,12 @@ export const ShapesSection = ({
                 selectedElement?.type === "shape" &&
                 selectedElement?.screenshotId === screenshot.id &&
                 selectedElement?.id === shape.id;
+              const isGlobalBack =
+                shape.layer === "behind" &&
+                behindShapes[0]?.id === shape.id;
+              const isGlobalFront =
+                shape.layer !== "behind" &&
+                frontShapes[frontShapes.length - 1]?.id === shape.id;
               return (
                 <div
                   key={shape.id}
@@ -187,7 +200,7 @@ export const ShapesSection = ({
                         e.stopPropagation();
                         onSendBackward(shape.id);
                       }}
-                      disabled={index === 0}
+                      disabled={isGlobalBack}
                       className={STYLES.iconButton}
                       title="Send backward"
                     >
@@ -198,7 +211,7 @@ export const ShapesSection = ({
                         e.stopPropagation();
                         onBringForward(shape.id);
                       }}
-                      disabled={index === shapes.length - 1}
+                      disabled={isGlobalFront}
                       className={STYLES.iconButton}
                       title="Bring forward"
                     >
@@ -222,7 +235,7 @@ export const ShapesSection = ({
             {selectedShape && (
               <div className={STYLES.propertiesPanel}>
                 <div>
-                  <label className="block text-xs text-neutral-500 dark:text-gray-400 mb-1">
+                  <label className="block text-xs font-medium text-neutral-600 dark:text-gray-300 mb-1">
                     Fill
                   </label>
                   <div className="flex gap-1">
@@ -284,7 +297,7 @@ export const ShapesSection = ({
                   <div className="space-y-2">
                     <div className="flex gap-2">
                       <div className="flex-1">
-                        <label className="block text-[10px] text-neutral-400 dark:text-gray-500 mb-1">
+                        <label className="block text-[10px] font-medium text-neutral-500 dark:text-gray-400 mb-1">
                           From
                         </label>
                         <input
@@ -299,7 +312,7 @@ export const ShapesSection = ({
                         />
                       </div>
                       <div className="flex-1">
-                        <label className="block text-[10px] text-neutral-400 dark:text-gray-500 mb-1">
+                        <label className="block text-[10px] font-medium text-neutral-500 dark:text-gray-400 mb-1">
                           To
                         </label>
                         <input
@@ -423,7 +436,7 @@ export const ShapesSection = ({
                 )}
 
                 <div>
-                  <label className="block text-xs text-neutral-500 dark:text-gray-400 mb-1">
+                  <label className="block text-xs font-medium text-neutral-600 dark:text-gray-300 mb-1">
                     Layer Position
                   </label>
                   <div className="flex gap-1">

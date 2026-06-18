@@ -79,7 +79,7 @@ const ProjectItem = ({
           onChange={(e) => setEditName(e.target.value)}
           onKeyDown={handleKeyDown}
           onBlur={handleSave}
-          className="flex-1 px-2 py-1 text-sm bg-neutral-100 dark:bg-zinc-800 border border-black/10 dark:border-zinc-600 rounded text-neutral-900 dark:text-white focus:outline-none focus:border-blue-500"
+          className="flex-1 px-2 py-1 text-sm bg-neutral-100 dark:bg-zinc-800 border border-black/10 dark:border-zinc-600 rounded text-neutral-900 dark:text-white focus:outline-none focus:border-brand-500"
         />
         <button
           onClick={handleSave}
@@ -104,7 +104,7 @@ const ProjectItem = ({
     <div
       className={`group flex items-center justify-between px-3 py-2 cursor-pointer transition-colors ${
         isActive
-          ? "bg-blue-100 text-blue-700 dark:bg-blue-600/20 dark:text-blue-400"
+          ? "bg-brand-50 text-brand-700 dark:bg-brand-500/15 dark:text-brand-300"
           : "hover:bg-neutral-100 dark:hover:bg-zinc-800 text-neutral-700 dark:text-zinc-300"
       }`}
       onClick={onSelect}
@@ -214,7 +214,7 @@ export const ProjectSwitcher = () => {
         className="w-full flex items-center justify-between gap-2 px-3 py-2 bg-neutral-100 dark:bg-zinc-800 hover:bg-neutral-200 dark:hover:bg-zinc-700 border border-black/10 dark:border-zinc-700 rounded-lg text-neutral-900 dark:text-white text-sm transition-colors"
       >
         <div className="flex items-center gap-2 min-w-0">
-          <FolderOpen className="w-4 h-4 text-blue-400 flex-shrink-0" />
+          <FolderOpen className="w-4 h-4 text-brand-500 dark:text-brand-400 flex-shrink-0" />
           <span className="truncate">{activeProject.name}</span>
         </div>
         <ChevronDown
@@ -263,12 +263,12 @@ export const ProjectSwitcher = () => {
                   onChange={(e) => setNewProjectName(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Project name"
-                  className="flex-1 px-2 py-1.5 text-sm bg-neutral-100 dark:bg-zinc-800 border border-black/10 dark:border-zinc-600 rounded text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-zinc-500 focus:outline-none focus:border-blue-500"
+                  className="flex-1 px-2 py-1.5 text-sm bg-neutral-100 dark:bg-zinc-800 border border-black/10 dark:border-zinc-600 rounded text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-zinc-500 focus:outline-none focus:border-brand-500"
                 />
                 <button
                   onClick={handleCreateProject}
                   disabled={!newProjectName.trim()}
-                  className="p-1.5 bg-blue-600 hover:bg-blue-500 disabled:bg-neutral-200 dark:disabled:bg-zinc-700 disabled:text-neutral-400 dark:disabled:text-zinc-500 rounded text-white transition-colors"
+                  className="p-1.5 bg-brand-500 hover:bg-brand-600 disabled:bg-neutral-200 dark:disabled:bg-zinc-700 disabled:text-neutral-400 dark:disabled:text-zinc-500 rounded text-white transition-colors"
                 >
                   <Check className="w-4 h-4" />
                 </button>
@@ -285,7 +285,7 @@ export const ProjectSwitcher = () => {
             ) : (
               <button
                 onClick={() => setIsCreating(true)}
-                className="w-full flex items-center gap-2 px-3 py-2 text-sm text-blue-600 dark:text-blue-400 hover:bg-neutral-100 dark:hover:bg-zinc-800 transition-colors"
+                className="w-full flex items-center gap-2 px-3 py-2 text-sm text-brand-600 dark:text-brand-300 hover:bg-neutral-100 dark:hover:bg-zinc-800 transition-colors"
               >
                 <Plus className="w-4 h-4" />
                 New Project

@@ -16,41 +16,43 @@ export const STYLES = {
   content: "p-4 space-y-6",
 
   /** Section container */
-  section: "rounded-lg bg-neutral-100 dark:bg-[#1e1e1e] p-3",
+  section:
+    "rounded-xl border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-[#1e1e1e] p-3.5",
 
   /** Section title */
   sectionTitle:
-    "text-xs font-medium text-neutral-700 dark:text-gray-300 uppercase tracking-wider mb-3",
+    "text-[11px] font-semibold text-neutral-700 dark:text-gray-200 uppercase tracking-wider mb-3",
 
   /** Section content */
   sectionContent: "space-y-3",
 
   /** Label text */
-  label: "text-xs text-neutral-500 dark:text-gray-400",
+  label: "text-xs font-medium text-neutral-600 dark:text-gray-300",
 
   /** Small label text */
-  labelSmall: "text-xs text-neutral-400 dark:text-gray-500",
+  labelSmall: "text-xs text-neutral-500 dark:text-gray-400",
 
   /** Range slider */
-  rangeSlider: "w-full mt-1 accent-neutral-900 dark:accent-white",
+  rangeSlider: "w-full mt-1 accent-brand-500 dark:accent-brand-400",
 
   /** Color input */
-  colorInput: "w-full h-8 rounded-md cursor-pointer",
+  colorInput: "w-full h-8 rounded-lg cursor-pointer",
 
   /** Small color input */
   colorInputSmall: "w-6 h-6 rounded cursor-pointer",
 
   /** Toggle button container */
-  toggle: "w-8 h-4 rounded-full transition-colors",
+  toggle: "w-9 h-5 rounded-full transition-colors",
 
   /** Toggle button active */
-  toggleActive: "bg-blue-600 dark:bg-white",
+  toggleActive: "bg-brand-500 dark:bg-brand-500",
 
   /** Toggle button inactive */
   toggleInactive: "bg-neutral-300 dark:bg-[#333]",
 
   /** Toggle knob */
-  toggleKnob: "w-3 h-3 rounded-full bg-white dark:bg-black transition-transform",
+  toggleKnob:
+    "w-3.5 h-3.5 rounded-full bg-white shadow-sm transition-transform",
 
   /** Toggle knob active position */
   toggleKnobActive: "translate-x-4",
@@ -59,46 +61,49 @@ export const STYLES = {
   toggleKnobInactive: "translate-x-0.5",
 
   /** Mode button */
-  modeButton: "flex-1 text-xs py-1.5 rounded-md",
+  modeButton: "flex-1 text-xs font-medium py-1.5 rounded-md transition-colors",
 
   /** Mode button active */
-  modeButtonActive: "bg-blue-600 text-white dark:bg-white dark:text-black",
+  modeButtonActive:
+    "bg-brand-500 text-white shadow-sm dark:bg-brand-500 dark:text-white",
 
   /** Mode button inactive */
   modeButtonInactive:
-    "bg-neutral-200 text-neutral-700 dark:bg-[#2a2a2a] dark:text-gray-300",
+    "bg-transparent text-neutral-600 hover:text-neutral-900 dark:text-gray-400 dark:hover:text-gray-200",
 
   /** Upload button */
   uploadButton:
-    "w-full bg-neutral-200 hover:bg-neutral-300 text-neutral-700 dark:bg-[#2a2a2a] dark:hover:bg-[#333] dark:text-gray-300 text-sm py-2 rounded-md transition-colors",
+    "w-full bg-white border border-black/5 hover:bg-neutral-100 text-neutral-700 dark:bg-[#2a2a2a] dark:border-transparent dark:hover:bg-[#333] dark:text-gray-300 text-sm font-medium py-2 rounded-lg transition-colors",
 
   /** Dropdown button */
   dropdownButton:
-    "w-full flex items-center justify-between bg-neutral-200 hover:bg-neutral-300 text-neutral-900 dark:bg-[#2a2a2a] dark:hover:bg-[#333] dark:text-white text-sm rounded-md px-3 py-2 transition-colors border border-transparent hover:border-black/10 dark:hover:border-white/10 outline-none focus:ring-1 focus:ring-neutral-900 dark:focus:ring-white",
+    "w-full flex items-center justify-between bg-white border border-black/5 hover:bg-neutral-100 text-neutral-900 dark:bg-[#2a2a2a] dark:border-transparent dark:hover:bg-[#333] dark:text-white text-sm rounded-lg px-3 py-2 transition-colors outline-none focus:ring-2 focus:ring-brand-500/40 dark:focus:ring-brand-400/40",
 
   /** Gradient preset button */
   gradientButton: "h-6 rounded-md",
 
   /** Gradient preset active */
-  gradientButtonActive: "ring-2 ring-blue-500 dark:ring-white",
+  gradientButtonActive:
+    "ring-2 ring-brand-500 ring-offset-1 ring-offset-neutral-50 dark:ring-brand-400 dark:ring-offset-[#1e1e1e]",
 
   /** Overlay item */
-  overlayItem: "flex items-center gap-2 p-2 rounded-lg cursor-pointer transition-all",
+  overlayItem:
+    "flex items-center gap-2 p-2 rounded-xl cursor-pointer transition-all",
 
   /** Overlay item active */
   overlayItemActive:
-    "bg-blue-50 ring-1 ring-blue-500 dark:bg-white/10 dark:ring-white",
+    "bg-brand-50 ring-1 ring-brand-500 dark:bg-brand-500/15 dark:ring-brand-400",
 
   /** Overlay item inactive */
   overlayItemInactive:
-    "bg-neutral-200 hover:bg-neutral-300 dark:bg-[#2a2a2a] dark:hover:bg-[#333]",
+    "bg-white border border-black/5 hover:bg-neutral-100 dark:bg-[#2a2a2a] dark:border-transparent dark:hover:bg-[#333]",
 
   /** Overlay thumbnail */
-  overlayThumbnail: "w-10 h-10 object-cover rounded",
+  overlayThumbnail: "w-10 h-10 object-cover rounded-lg",
 
   /** Icon button */
   iconButton:
-    "p-1 text-neutral-500 hover:text-neutral-900 dark:text-gray-400 dark:hover:text-white disabled:opacity-30 disabled:cursor-not-allowed",
+    "p-1 rounded-md text-neutral-500 hover:text-brand-600 hover:bg-brand-500/10 dark:text-gray-400 dark:hover:text-brand-300 dark:hover:bg-brand-400/10 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent",
 
   /** Delete icon button */
   iconButtonDelete:

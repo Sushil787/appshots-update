@@ -92,12 +92,29 @@ export const OverlayImagesSection = ({
 
         {screenshot.overlayImages.length > 0 && (
           <div className="space-y-2 mt-3">
-            {screenshot.overlayImages.map((img, index) => (
+            {screenshot.overlayImages.map((img, index) => {
+              const behindImages = screenshot.overlayImages.filter(
+                (item) => item.layer === "behind",
+              );
+              const frontImages = screenshot.overlayImages.filter(
+                (item) => item.layer !== "behind",
+              );
+              // Only block movement at the true global extremes; anything in
+              // between (including a lone image that must cross the device) can
+              // still move.
+              const disableBackward =
+                img.layer === "behind" && behindImages[0]?.id === img.id;
+              const disableForward =
+                img.layer !== "behind" &&
+                frontImages[frontImages.length - 1]?.id === img.id;
+              return (
               <OverlayImageItem
                 key={img.id}
                 image={img}
                 index={index}
                 totalCount={screenshot.overlayImages.length}
+                disableForward={disableForward}
+                disableBackward={disableBackward}
                 isSelected={
                   selectedElement?.type === "image" &&
                   selectedElement?.screenshotId === screenshot.id &&
@@ -114,7 +131,8 @@ export const OverlayImagesSection = ({
                 onMoveForward={() => onBringForward(img.id)}
                 onMoveBackward={() => onSendBackward(img.id)}
               />
-            ))}
+              );
+            })}
 
             {selectedImage && (
               <OverlayImageProperties
